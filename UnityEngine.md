@@ -32,8 +32,54 @@
     - 优点：可以避免万向锁；只需要一个4维的四元数就可以执行绕任意过原点的向量的旋转，方便快捷，在某些实现下比旋转矩阵效率更高；而且四元数旋转可以提供平滑插值。
     - 缺点：比欧拉旋转稍微复杂了一点，因为多了一个维度，理解更困难，不直观。
 
+
+### NGUI与UGUI
+1. NGUI与UGUI的区别
+UGUI是官方4.6以后推出的一套UI组件，相对于之前的GUI倒是改头换面了，可视化操作，便捷、省心。NGUI则是unity一直以来最强的UI插件（没有之一），甚至还是官方新UI的导师。
+    1. ugui的ui根目录为canvas（画布），ngui则是uiroot。在命名上官方似乎更贴合想象力。
+    2. 在屏幕自适应方面，ugui为render mode。ngui则为scaling style。
+    3. anchor（锚点）的使用方式差不多，都是用来固定位置，在可视化方面，ugui的花瓣锚点真不太好调。
+    4. ngui灵活性不是一般的高，随意创建一个sprite，加了boxcollider，它就可以是按钮、滑动条……
+    5. ugui的sprite的切图功能真心不错。ngui使用图集不能直接拖拉（毕竟是三方插件）略不方便。
+    6. ngui的tween动画功能很省心，无需额外定义代码，使用封装好的脚本就可以实现一些简单动画，叠加脚本甚至能实现相对复杂的动画效果。
+
+![nguiugui](img/nguiUgui.webp)
+
+总结：
+- NGUI与UGUI的区别
+- uGUI的Canvas 有世界坐标和屏幕坐标
+- uGUI的Image可以使用material
+- UGUI通过Mask来裁剪，而NGUI通过Panel的Clip
+- NGUI的渲染前后顺序是通过Widget的Depth，而UGUI渲染顺序根据Hierarchy的顺序，越下面渲染在顶层.
+- UGUI 不需要绑定Colliders，UI可以自动拦截事件
+- UGUI的Anchor是相对父对象，没有提供高级选项，个人感觉uGUI的Anchor操作起来比NGUI更方便
+- UGUI没有Atlas一说，使用Sprite Packer
+- UGUI的Navigation在Scene中能可视化
+- UGUI的事件需要实现事件系统的接口，但写起来也算简单
+
+2. 各自的优缺点
+    1. NGUI还保留着图集，需要进行图集的维护。而UGUI没有图集的概念，可以充分利用资源，避免重复资 源。
+    2. UGUI出现了锚点的概念，更方便屏幕自适应。
+    3. NGUI支持图文混排，UGUI暂未发现支持此功能。
+    4. UGUI没有 UIWrap 来循环 scrollview 内容。
+    5. UGUI暂时没有Tween组件。
+
+3. 使用选择总结
+UGUI由于是Unity原生支持的，所以使用上会更加的人性化。并且伴随着版本升级功能会越来越强，逐渐将成为主流ui方案。NGUI是UGUI出现之前的产物，通过MeshRenderer来实现类似CanvasRenderer的功能，概念上有点蹩脚。作为一个插件虽然已最大努力让UI开发工作变得简单，但相比能够让UnityEditor做出相应修改的UGUI（如RectTransform的出现），其易用性是没法比的。综合来说，新的项目建议使用UGUI，学习成本不高，工具流更有助于提高开发效率。
+
+
+### DoTween
+先来看一下我画的DoTween的类图结构：
+![](img/dotween.png)
+
+只要明白上面类图中的结构，我认为就差不多搞懂了DoTween的大体实现方式了。首先在Unity中之所以可以使用例如：transform.DoMove(new vector3(1,1,1)，2)；这种的调用方式，是因为DoTween定义了大量与Transform、Rigibody、Material、Camera等相关的拓展函数，这些拓展函数就定义在了ShortcutExtensions类中。拓展函数真是个c#的伟大设计，由于它的存在，使用者可以像调用类的原生函数一样调用自定义函数，使用起来简洁、高效，还减少了入参的数量和相关的有效性判断，可谓是一举多得。在以后自己的项目中编写模块时也可使用此方法。
+
+
+
 ### 碰撞器和触发器的区别
 - 碰撞器是触发器的载体，而触发器只是碰撞器身上的一个属性。
 - 当Is Trigger=false时，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，可以调用OnCollisionEnter/Stay/Exit函数；
 - 当Is Trigger=true时，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数。
 - 如果既要检测到物体的接触又不想让碰撞检测影响物体移动或要检测一个物件是否经过空间中的某个区域这时就可以用到触发器
+
+
