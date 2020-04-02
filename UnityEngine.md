@@ -82,4 +82,46 @@ UGUI由于是Unity原生支持的，所以使用上会更加的人性化。并�
 - 当Is Trigger=true时，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter/Stay/Exit函数。
 - 如果既要检测到物体的接触又不想让碰撞检测影响物体移动或要检测一个物件是否经过空间中的某个区域这时就可以用到触发器
 
+### UGUI canvas的三种模式
+【Unity3d游戏开发】浅谈UGUI中的Canvas以及三种画布渲染模式: https://www.cnblogs.com/msxh/p/6337338.html
 
+
+### UnityMonoBehaivoir生命周期
+
+![](img/Center.png)
+
+MonoBehaviour是Unity中所有脚本的基类，如果你使用js的话，脚本会自动继承MonoBehaviour。如果使用C#的话，你需要显式继承MonoBehaviour。
+在我们使用MonoBehaviour的时候，尤其需要注意的是它有哪些可重写函数，这些可重写函数会在游戏中发生某些事件的时候被调用。我们在Unity中最常用到的几个可重写函数是这几个：
+- Awake：当一个脚本实例被载入时Awake被调用。我们大多在这个类中完成成员变量的初始化
+- OnEnable：当对象变为可用或激活状态时此函数被调用。
+- Start：仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行一些协程的触发。要注意在用C#写脚本时，必须使用StartCoroutine开始一个协程，但是如果使用的是JavaScript，则不需要这么做。
+- Update：当MonoBehaviour启用时，其Update在每一帧被调用。
+- FixedUpdate：当MonoBehaviour启用时，其 FixedUpdate 在每一固定帧被调用。
+- LateUpdat 方法 :是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现
+- OnGUI 方法:  渲染和处理GUI事件时调用 这里不是 没帧都调用哦
+- OnDisable：当对象变为不可用或非激活状态时此函数被调用。
+- OnDestroy：当MonoBehaviour将被销毁时，这个函数被调用。
+
+
+### Unity GC
+【Unity3d游戏开发】浅谈Unity中的GC以及优化:https://blog.csdn.net/worisaa/article/details/64121436
+
+### 10000个monobehavior，每个各自执行update，和放到一个update里执行，哪个效率更高？为什么？
+Unity3d 10000 Update() calls 性能优化 https://blog.csdn.net/huutu/article/details/50522585
+
+### 为什么instantiate会耗性能？
+第一次执行GameObject.Instantiate的时候有明显卡顿，该怎么解决？
+https://answer.uwa4d.com/question/58f376cd691df3f25d576cf1/undefined
+Unity3d性能优化（CPU）
+https://www.jianshu.com/p/df31fec9b4b8
+
+
+### AB包的压缩格式有哪些？你知道哪些压缩算法？
+Unity3D:资源包的压缩(Asset Bundle Compression)
+https://blog.csdn.net/zgl159040290/article/details/52806507
+
+
+### Uielement
+一个新的用于UnityEditor的UI框架,实现类似于Web前端
+Unity 2019.1的UIElements功能介绍
+https://www.linecg.com/news_8740.html
