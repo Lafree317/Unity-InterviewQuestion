@@ -1,5 +1,5 @@
 # Unity面试题总结
-总结面试时亲身经历或者是网上优秀的面试精力，长期维护欢迎PR
+总结面试时亲身经历或者是网上优秀的面试经验，长期维护欢迎PR
 总共分为以下几大模块：
 - ### [语言](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E8%AF%AD%E8%A8%80.md)
 - ### [Unity](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/UnityEngine.md)
