@@ -115,6 +115,8 @@ https://answer.uwa4d.com/question/58f376cd691df3f25d576cf1/undefined
 Unity3d性能优化（CPU）
 https://www.jianshu.com/p/df31fec9b4b8
 
+### AssestBundle基础:
+https://blog.csdn.net/a834595603/article/details/91346559
 
 ### AB包的压缩格式有哪些？你知道哪些压缩算法？
 Unity3D:资源包的压缩(Asset Bundle Compression)
