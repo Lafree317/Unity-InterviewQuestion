@@ -105,6 +105,7 @@ MonoBehaviour是Unity中所有脚本的基类，如果你使用js的话，脚本
 
 ### Unity GC
 【Unity3d游戏开发】浅谈Unity中的GC以及优化:https://blog.csdn.net/worisaa/article/details/64121436
+Unity GC垃圾回收 : https://blog.csdn.net/wangjiangrong/article/details/89011349
 
 ### 10000个monobehavior，每个各自执行update，和放到一个update里执行，哪个效率更高？为什么？
 Unity3d 10000 Update() calls 性能优化 https://blog.csdn.net/huutu/article/details/50522585
