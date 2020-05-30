@@ -130,3 +130,6 @@ https://blog.csdn.net/zgl159040290/article/details/52806507
 Unity 2019.1的UIElements功能介绍
 https://www.linecg.com/news_8740.html
 
+### 动态合批静态合拼
+https://www.cnblogs.com/skandya/p/4905145.html
+
