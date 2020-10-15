@@ -67,6 +67,8 @@ UGUI是官方4.6以后推出的一套UI组件，相对于之前的GUI倒是改�
 3. 使用选择总结
 UGUI由于是Unity原生支持的，所以使用上会更加的人性化。并且伴随着版本升级功能会越来越强，逐渐将成为主流ui方案。NGUI是UGUI出现之前的产物，通过MeshRenderer来实现类似CanvasRenderer的功能，概念上有点蹩脚。作为一个插件虽然已最大努力让UI开发工作变得简单，但相比能够让UnityEditor做出相应修改的UGUI（如RectTransform的出现），其易用性是没法比的。综合来说，新的项目建议使用UGUI，学习成本不高，工具流更有助于提高开发效率。
 
+### UI事件渗透
+http://www.xuanyusong.com/archives/4241
 
 ### DoTween
 先来看一下我画的DoTween的类图结构：
