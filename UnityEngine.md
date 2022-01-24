@@ -135,3 +135,6 @@ https://www.linecg.com/news_8740.html
 ### 动态合批静态合拼
 https://www.cnblogs.com/skandya/p/4905145.html
 
+### DrawCall、Batch、SetPassCall的区别
+https://zhuanlan.zhihu.com/p/366779113
+
