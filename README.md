@@ -12,13 +12,3 @@
 ---
 ### [技术博客](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E5%8D%9A%E5%AE%A2%26%E9%9D%A2%E7%BB%8F.md)
 --- 
-
-### 招聘
-岗位：Unity游戏开发。
-非常熟悉C#和Unity，有丰富的Gameplay编程经验。  
-有优秀的开发能力和良好的代码习惯，能够胜任Unity主程的工作。  
-有扎实的图形学基础，熟悉渲染和shader相关的知识。  
-强大的自学动力，无障碍阅读英文文档和文章。  
-强烈的责任感，具备良好的沟通能力。  
-可将邮件直接发送至work@pbear.games，或者添加微信vizodream，添加时请备注您的求职岗位。  
-> 独立游戏 rougelike
