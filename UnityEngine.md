@@ -120,8 +120,6 @@ Unity3d 10000 Update() calls 性能优化 https://blog.csdn.net/huutu/article/de
 ### 为什么instantiate会耗性能？
 第一次执行GameObject.Instantiate的时候有明显卡顿，该怎么解决？
 https://answer.uwa4d.com/question/58f376cd691df3f25d576cf1/undefined
-Unity3d性能优化（CPU）
-https://www.jianshu.com/p/df31fec9b4b8
 
 ### AssestBundle基础:
 https://blog.csdn.net/a834595603/article/details/91346559
