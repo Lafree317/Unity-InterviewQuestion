@@ -115,7 +115,7 @@ MonoBehaviour是Unity中所有脚本的基类，如果你使用js的话，脚本
  Unity GC垃圾回收 : https://blog.csdn.net/wangjiangrong/article/details/89011349
 
 ### 10000个monobehavior，每个各自执行update，和放到一个update里执行，哪个效率更高？为什么？
-Unity3d 10000 Update() calls 性能优化 https://blog.csdn.net/huutu/article/details/50522585
+Unity3d 10000 Update() calls 性能优化 https://blog.unity.com/engine-platform/10000-update-calls
 
 ### 为什么instantiate会耗性能？
 第一次执行GameObject.Instantiate的时候有明显卡顿，该怎么解决？
