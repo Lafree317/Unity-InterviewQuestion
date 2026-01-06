@@ -11,6 +11,9 @@
 - [网络](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E7%BD%91%E7%BB%9C.md)
 - [优化](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E4%BC%98%E5%8C%96.md)
 - [框架](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E6%A1%86%E6%9E%B6.md)
+- [工程实践 / CI](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5.md)
+- [测试与质量](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%B4%A8%E9%87%8F.md)
+- [多线程与 Job/Burst](https://github.com/Lafree317/Unity-InterviewQuestion/blob/master/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8EJob.md)
 
 ---
 ### 附：技术博客

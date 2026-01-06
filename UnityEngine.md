@@ -8,6 +8,22 @@
     - 同一时间只会执行某个协程片段，适合分步或定时逻辑。
     - 不是并行线程，无法利用多核并行。
 
+### Addressables 与 Resources.Load 的差异
+- **加载/卸载**：Addressables 支持异步引用计数与生命周期管理，`Resources.Load` 需手动缓存与 `Resources.UnloadUnusedAssets`。
+- **可扩展性**：Addressables 支持分组、远程下载、Catalog 热更、依赖追踪；Resources 属于全量打包、不可按需更新。
+- **定位方式**：Addressables 通过地址或标签定位，支持分析工具；Resources 需路径字符串，易出错且无依赖可视化。
+- **推荐**：正式项目优先 Addressables；临时工具或编辑器脚本可用 Resources 的快速加载。
+
+### 异步加载场景/大资源时避免卡顿的手段
+- 场景加载用 `LoadSceneAsync` 并勾选 `allowSceneActivation=false`，在 0.9~0.95 进度时预热再切换；分步切换 UI/逻辑。
+- 资源加载使用 Addressables 的 `DownloadDependenciesAsync` 预拉取，或将大纹理/音频标记为 `Streaming`，避免首帧峰值。
+- 在加载过程中禁用昂贵脚本/粒子，利用 `AsyncOperation` 的 `completed` 回调或协程分帧执行初始化。
+
+### 物理模拟的固定时间步调优
+- Unity 物理依赖 `FixedUpdate`，`Time.fixedDeltaTime` 默认 0.02s，如调小可提高手感但 CPU 开销上升；调大则省资源但可能穿透。
+- 需要**确定性逻辑**（帧同步）时避免在 `Update` 修改刚体，统一在 `FixedUpdate` 里施加力/速度；渲染插值可用 `Rigidbody.Interpolation` 平滑视觉。
+- 碰撞检测模式：高速刚体使用 `Continuous Dynamic` 与 `Continuous Speculative`，静态物体用 `Discrete`，平衡稳定性与性能。
+
 ### 本地坐标系 世界坐标系
 - 世界坐标系：世界坐标是指物体在场景中的坐标，当某个物体没有父物体时，它的position即为世界坐标的position，rotation同理；本地坐标是物体相对于它的父物体的坐标而言，这个相对坐标是以父物体本身为坐标轴进行计算的，与世界坐标没有必然联系。而对于没有父物体的物体，可以认为不存在本地坐标这种说法。
 - 本地坐标系：当某个物体有父物体时，它的inspector栏transform中的position实际是localposition，即本地坐标。
